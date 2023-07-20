@@ -1,0 +1,21 @@
+
+
+.header_container {
+  @apply flex items-center justify-center h-[100px] bg-violet-800;
+
+  .header_content {
+    @apply flex items-center gap-3 m-10;
+
+    .header_logo {
+
+    }
+
+    .header_info {
+
+    }
+
+    .header_login_info {
+
+    }
+  }
+}

@@ -1,0 +1,21 @@
+
+
+.main_form_content {
+    @apply flex flex-col items-center w-[150px] text-sm;
+
+    .main_form_label {
+        @apply text-xs first-letter:uppercase self-start;
+    }
+
+    .main_form_input {
+        @apply cursor-pointer border rounded-md hover:bg-violet-400 hover:ring-1 p-1 self-stretch;
+    }
+
+    .main_form_new_user {
+        @apply text-xs text-red-600 first-letter:uppercase py-2;
+    }
+
+    .main_form_login {
+        @apply text-neutral-300 bg-violet-700 first-letter:uppercase self-stretch rounded-md py-0.5;
+    }
+}

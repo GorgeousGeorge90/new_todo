@@ -1,0 +1,13 @@
+
+
+.add_form_content {
+  @apply flex flex-col items-center gap-0.5 w-[150px] text-sm;
+
+  .add_form_input {
+    @apply cursor-pointer border rounded-md hover:bg-violet-400 hover:ring-1 p-1 self-stretch;
+  }
+
+  .add_form_registration {
+    @apply text-neutral-300 bg-violet-700 first-letter:uppercase self-stretch rounded-md py-0.5;
+  }
+}

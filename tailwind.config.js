@@ -2,7 +2,11 @@
 module.exports = {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans-serif': ['Alegreya Sans SC', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
