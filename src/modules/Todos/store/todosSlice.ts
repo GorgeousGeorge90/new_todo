@@ -1,28 +1,34 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {TodoItemType, TodosType} from '../types/types';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { TodoItemType, TodosType, updateTodoPayload, NewTodoType } from '../types/types';
+import homer from '../../../assets/img/homer.png';
 
 
 const initialState:TodosType = {
-    todos:[],
+    todos:[
+        {
+            id:'23',name:'Kate',title:'Hi',text:'Nice boobs!',avatar:homer,complete:false,date:'213123'
+        }
+    ],
     status:'idle',
 }
-
-export type updateTodoPayload = Pick<TodoItemType, 'id'| 'text'>
 
 const todosSlice = createSlice({
     name:'@todos',
     initialState,
     reducers:{
-        addTodo(state) {
+        addTodo(state,action:PayloadAction<NewTodoType>) {
+            const {title,text,name} = action.payload
             const newTodo:TodoItemType = {
-                id:'123',
-                name:'Egor',
-                title:'Hello!',
-                text:'Do it!',
+                id: Date.now().toLocaleString(),
+                name,
+                title,
+                text,
                 complete:false,
+                avatar:homer,
                 date: new Date().toLocaleTimeString(),
             }
-            state.todos.push(newTodo)
+            console.log(newTodo)
+            state.todos = [...state.todos,newTodo]
         },
         completeTodo(state,action:PayloadAction<TodoItemType['id']>) {
             const todo = state.todos.find(todo => todo.id === action.payload)
@@ -45,6 +51,6 @@ const todosSlice = createSlice({
     }
 })
 
-export const {addTodo,completeTodo,updateTodo,deleteTodo} = todosSlice.actions
+export const { addTodo,completeTodo,updateTodo,deleteTodo } = todosSlice.actions
 
 export default todosSlice.reducer

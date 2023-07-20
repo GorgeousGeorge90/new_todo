@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {LoginStateType, UserLoginType, UserType} from '../types/types';
+import {AddUserFormType, LoginStateType, UserLoginType, UserType} from '../types/types';
+import homer from '../../../assets/img/homer.png';
 
 
 
 const initialState:LoginStateType = {
     users: [
-        { id:'12', name: 'Egor', password: '1111'}
+        { id:'12', name: 'Egor', password: '1111', avatar:homer}
     ],
     current: null,
 }
@@ -20,7 +21,7 @@ const loginSlice = createSlice({
 
             if (currentUser) {
                 if (currentUser.password === password) {
-                    state.current = name
+                    state.current = currentUser
                 }
             }
         },
@@ -29,17 +30,27 @@ const loginSlice = createSlice({
             state.current = null
         },
 
-        addUser(state,action) {
+        addUser(state,action:PayloadAction<AddUserFormType>) {
             const { new_name, new_password } = action.payload
             const newUser:UserType = {
                 id: Date.now().toString(),
                 name:new_name,
                 password:new_password,
+                avatar:homer,
             }
             state.users.push(newUser)
+        },
+
+        pickAvatar(state,action:PayloadAction<Pick<UserType, 'id'|'avatar'>>) {
+            const { id, avatar } = action.payload
+            const currentUser = state.users.find(user => user.id === id)
+
+            if (currentUser) {
+                currentUser.avatar = avatar
+            }
         }
     }
 })
 
 export default loginSlice.reducer
-export const { logIn, logOut, addUser } = loginSlice.actions
+export const { logIn, logOut, addUser, pickAvatar } = loginSlice.actions

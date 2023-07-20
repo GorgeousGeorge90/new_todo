@@ -7,7 +7,7 @@ const LayoutElement = () => {
 
     return (<div className={'flex flex-col h-screen w-[1100px]'}>
         <Header/>
-
+        <br/>
         <main className={'flex-grow'}>
             <Outlet/>
         </main>

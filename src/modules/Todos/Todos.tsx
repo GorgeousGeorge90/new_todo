@@ -5,16 +5,16 @@ import { useAppSelector } from '../../store/hooks';
 
 
 
+
 const Todos = () => {
     const todos = useAppSelector(getTodos)
 
     return (<section>
-        <h3></h3>
         {
             todos ?  <ul>
                 {
                     todos.map(todo => <TodoItem key={todo.id}
-                                                {...todo}
+                                                    {...todo}
                     />)
                 }
             </ul>: <p>planning is the key to success</p>

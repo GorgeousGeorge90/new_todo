@@ -1,20 +1,32 @@
 
 
 .header_container {
-  @apply flex items-center justify-center h-[100px] bg-violet-800;
+  @apply flex items-center h-[110px] bg-violet-800 text-neutral-300;
 
   .header_content {
-    @apply flex items-center gap-3 m-10;
+    @apply flex items-center gap-3 m-10 flex-grow;
 
     .header_logo {
 
     }
 
     .header_info {
+      @apply flex-grow text-neutral-300 text-sm first-letter:uppercase px-5;
 
+      .header_title {
+        @apply font-bold text-2xl text-neutral-100;
+      }
     }
 
     .header_login_info {
+
+      .header_login_info_online {
+        @apply grid grid-rows-2 grid-cols-2 items-center justify-center text-sm;
+
+        .header_login_btn {
+          @apply bg-violet-600 rounded-md p-1 hover:bg-violet-500;
+        }
+      }
 
     }
   }

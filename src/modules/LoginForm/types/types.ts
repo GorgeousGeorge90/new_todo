@@ -3,6 +3,7 @@ export type UserType = {
     id:string,
     name:string,
     password:string,
+    avatar:string,
 }
 
 
@@ -10,7 +11,7 @@ export type UserLoginType = Pick<UserType, 'name' | 'password'>
 
 export type LoginStateType = {
     users:UserType[],
-    current: string | null,
+    current: UserType | null,
 }
 
 export type MainFormType = {

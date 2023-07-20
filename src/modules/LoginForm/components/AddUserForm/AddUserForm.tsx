@@ -4,13 +4,20 @@ import styles from './AddUserForm.module.scss';
 import React from 'react';
 import { useAppDispatch } from "../../../../store/hooks";
 import { addUser } from '../../store/loginSlice';
+import {useNavigate} from "react-router-dom";
 
 
 const AddUserForm = ({onClick}:FormPropsType) => {
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
     const { register, reset, formState:{errors}, handleSubmit } = useForm<AddUserFormType>()
+
     const onSubmit:SubmitHandler<AddUserFormType> = data => {
         dispatch(addUser(data))
+        onClick()
+    }
+    const backMove = (event:React.SyntheticEvent) => {
+        event.preventDefault()
         onClick()
     }
 
@@ -25,7 +32,8 @@ const AddUserForm = ({onClick}:FormPropsType) => {
                type='text'
                placeholder={'new password'}
                {...register('new_password')}/>
-        <br/>
+        <button onClick={backMove}
+                className={styles.add_form_back}>back</button>
         <button className={styles.add_form_registration}>registration</button>
     </form>)
 }

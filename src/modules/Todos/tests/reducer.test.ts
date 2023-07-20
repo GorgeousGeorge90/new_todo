@@ -5,11 +5,12 @@ import todoReducer, {
     updateTodo
 } from './../store/todosSlice';
 import { TodosType } from '../types/types';
+import homer from '../../../assets/img/homer.png';
 
 
 const initialState:TodosType = {
     todos:[
-        {id:'1',name:'Egor',title:'Hello!',text:'Nice!',complete:false,date:'123'}
+        {id:'1',name:'Egor',title:'Hello!',text:'Nice!',complete:false,date:'123',avatar:homer}
     ],
     status:'idle',
 }

@@ -12,7 +12,7 @@
     }
 
     .main_form_new_user {
-        @apply text-xs text-red-600 first-letter:uppercase py-2;
+        @apply text-xs text-red-600 first-letter:uppercase py-2 hover:scale-110;
     }
 
     .main_form_login {

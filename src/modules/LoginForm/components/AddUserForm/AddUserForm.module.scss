@@ -7,6 +7,10 @@
     @apply cursor-pointer border rounded-md hover:bg-violet-400 hover:ring-1 p-1 self-stretch;
   }
 
+  .add_form_back {
+    @apply text-xs text-red-600 first-letter:uppercase py-2 hover:scale-125;
+  }
+
   .add_form_registration {
     @apply text-neutral-300 bg-violet-700 first-letter:uppercase self-stretch rounded-md py-0.5;
   }

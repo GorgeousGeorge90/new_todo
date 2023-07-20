@@ -1,0 +1,22 @@
+
+
+.todo_item_container {
+  @apply flex  w-fit max-w-[500px] rounded-md p-5 bg-violet-200;
+
+  .todo_item_main {
+    @apply flex flex-col text-neutral-800 text-sm;
+
+    .todo_item_title {
+      @apply font-bold text-lg text-neutral-700;
+    }
+  }
+
+
+  .todo_item_right {
+    @apply flex flex-col items-center text-xs;
+
+    img {
+      @apply scale-50;
+    }
+  }
+}
