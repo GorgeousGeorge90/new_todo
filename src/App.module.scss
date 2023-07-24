@@ -1,5 +1,18 @@
 
 
 .app {
-  @apply flex flex-col h-screen w-[1100px] mx-auto font-sans-serif;
+  @apply w-[1100px] mx-auto font-sans-serif;
+
+  .app_container {
+    @apply flex flex-col h-screen;
+
+    .app_main {
+      @apply bg-violet-100 grow;
+    }
+
+    .app_footer {
+      @apply flex gap-1 bg-violet-100 items-center justify-center p-3 self-stretch
+      text-sm text-neutral-700 hover:text-violet-700;
+    }
+  }
 }

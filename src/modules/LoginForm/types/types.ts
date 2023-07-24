@@ -6,12 +6,21 @@ export type UserType = {
     avatar:string,
 }
 
+export type ErrorType = {
+    message:string
+}
+
+export type FetchType = UserType & {
+    error: null | string,
+}
 
 export type UserLoginType = Pick<UserType, 'name' | 'password'>
 
 export type LoginStateType = {
     users:UserType[],
     current: UserType | null,
+    status: 'idle' | 'pending' | 'fulfilled' | 'rejected',
+    error: null | string,
 }
 
 export type MainFormType = {

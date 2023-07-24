@@ -12,6 +12,8 @@ const login:LoginStateType = {
         { id:'12', name: 'Egor', password: '1111', avatar:homer}
     ],
     current: { id:'12', name: 'Egor', password: '1111', avatar:homer},
+    status:'idle',
+    error: null,
 }
 
 describe('login selectors',()=> {

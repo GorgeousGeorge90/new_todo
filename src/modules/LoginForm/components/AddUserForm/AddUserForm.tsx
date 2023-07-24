@@ -2,19 +2,29 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { AddUserFormType, FormPropsType } from '../../types/types';
 import styles from './AddUserForm.module.scss';
 import React from 'react';
-import { useAppDispatch } from "../../../../store/hooks";
-import { addUser } from '../../store/loginSlice';
-import {useNavigate} from "react-router-dom";
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import { addNewUser, addUser } from '../../store/loginSlice';
+import { useNavigate } from 'react-router-dom';
+import { getError}  from "../../selectors/selectors";
+import {toast} from "react-toastify";
+
 
 
 const AddUserForm = ({onClick}:FormPropsType) => {
     const dispatch = useAppDispatch()
+    const error = useAppSelector(getError)
     const navigate = useNavigate()
     const { register, reset, formState:{errors}, handleSubmit } = useForm<AddUserFormType>()
 
     const onSubmit:SubmitHandler<AddUserFormType> = data => {
-        dispatch(addUser(data))
-        onClick()
+        dispatch(addNewUser(data))
+
+        if (error) {
+            toast(error)
+        } else {
+            alert('Success!')
+            onClick()
+        }
     }
     const backMove = (event:React.SyntheticEvent) => {
         event.preventDefault()
@@ -26,12 +36,12 @@ const AddUserForm = ({onClick}:FormPropsType) => {
         <input className={styles.add_form_input}
                type='text'
                placeholder={'new name'}
-               {...register('new_name')}
+               {...register('new_name', {required:true})}
         />
         <input className={styles.add_form_input}
                type='text'
                placeholder={'new password'}
-               {...register('new_password')}/>
+               {...register('new_password', {required:true})}/>
         <button onClick={backMove}
                 className={styles.add_form_back}>back</button>
         <button className={styles.add_form_registration}>registration</button>

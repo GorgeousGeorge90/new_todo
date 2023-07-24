@@ -8,7 +8,7 @@
     }
 
     .main_form_input {
-        @apply cursor-pointer border rounded-md hover:bg-violet-400 hover:ring-1 p-1 self-stretch;
+        @apply cursor-pointer border rounded-md hover:bg-violet-100 hover:ring-1 p-1 self-stretch;
     }
 
     .main_form_new_user {
@@ -16,6 +16,7 @@
     }
 
     .main_form_login {
-        @apply text-neutral-300 bg-violet-700 first-letter:uppercase self-stretch rounded-md py-0.5;
+        @apply text-neutral-300 bg-violet-700 first-letter:uppercase text-neutral-200 hover:ring-2
+        self-stretch rounded-md py-0.5;
     }
 }

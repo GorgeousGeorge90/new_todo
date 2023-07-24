@@ -14,6 +14,8 @@ const initialState:LoginStateType = {
         { id:'12', name: 'Egor', password: '1111', avatar:homer}
     ],
     current: { id:'132', name: 'Kate', password: '1111', avatar:homer},
+    status:'idle',
+    error:null,
 }
 
 describe('login reducer cases',()=> {
