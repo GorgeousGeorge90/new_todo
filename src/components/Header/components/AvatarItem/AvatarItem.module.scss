@@ -1,0 +1,18 @@
+
+
+
+.avatar_item_container {
+  @apply flex items-center justify-center h-20 w-48 absolute right-40;
+
+  .avatar_item_list {
+    @apply flex gap-2;
+
+    .avatar_item_el {
+      @apply hover:ring-2 ring-fuchsia-200 cursor-pointer rounded-full;
+
+      .avatar_item_img {
+        @apply h-10 w-10;
+      }
+    }
+  }
+}

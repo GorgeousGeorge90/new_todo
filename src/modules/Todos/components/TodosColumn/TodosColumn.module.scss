@@ -1,0 +1,14 @@
+
+
+
+.todos_column_container {
+  @apply flex flex-col items-center gap-2;
+
+  .todos_column_title {
+    @apply first-letter:uppercase font-bold text-lg text-violet-500;
+  }
+
+  .todos_column_list {
+    @apply flex flex-col items-center gap-5;
+  }
+}

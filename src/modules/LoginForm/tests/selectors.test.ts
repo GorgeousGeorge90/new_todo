@@ -9,11 +9,12 @@ import homer from '../../../assets/img/homer.png';
 
 const login:LoginStateType = {
     users: [
-        { id:'12', name: 'Egor', password: '1111', avatar:homer}
+        { id:12, name: 'Egor', password: '1111', avatar:homer}
     ],
-    current: { id:'12', name: 'Egor', password: '1111', avatar:homer},
+    current: { id:12, name: 'Egor', password: '1111', avatar:homer},
     status:'idle',
     error: null,
+    avatars: null,
 }
 
 describe('login selectors',()=> {

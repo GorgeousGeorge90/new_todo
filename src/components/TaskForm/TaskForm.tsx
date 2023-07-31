@@ -1,9 +1,9 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import styles from './TaskForm.module.scss';
-import {NewTodoType, TaskType} from '../../modules/Todos/types/types';
+import {NewTodoProps, NewTodoType, TaskType} from '../../modules/Todos/types/types';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { addTodo } from '../../modules/Todos/store/todosSlice';
 import {getCurrent} from "../../modules/LoginForm/selectors/selectors";
+import {addNewTodo} from "../../modules/Todos/store/todosSlice";
 
 
 
@@ -13,12 +13,12 @@ const TaskForm = () => {
     const { register, reset, handleSubmit, formState:{errors}} = useForm<TaskType>()
     const onSubmit:SubmitHandler<NewTodoType> = data => {
         if (current) {
-            const payload= {
+            const payload: NewTodoProps = {
                 name: current.name,
                 title: data.title,
                 text: data.text,
             }
-            dispatch(addTodo(payload))
+            dispatch(addNewTodo(payload))
             reset()
         }
     }

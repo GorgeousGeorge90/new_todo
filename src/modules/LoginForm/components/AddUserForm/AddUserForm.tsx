@@ -3,7 +3,7 @@ import { AddUserFormType, FormPropsType } from '../../types/types';
 import styles from './AddUserForm.module.scss';
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-import { addNewUser, addUser } from '../../store/loginSlice';
+import { addNewUser } from '../../store/loginSlice';
 import { useNavigate } from 'react-router-dom';
 import { getError}  from "../../selectors/selectors";
 import {toast} from "react-toastify";

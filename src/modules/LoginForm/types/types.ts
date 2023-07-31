@@ -1,9 +1,9 @@
 
 export type UserType = {
-    id:string,
+    id:number,
     name:string,
     password:string,
-    avatar:string,
+    avatar:string | null,
 }
 
 export type ErrorType = {
@@ -20,6 +20,7 @@ export type LoginStateType = {
     users:UserType[],
     current: UserType | null,
     status: 'idle' | 'pending' | 'fulfilled' | 'rejected',
+    avatars:null | string[],
     error: null | string,
 }
 

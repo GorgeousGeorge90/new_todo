@@ -1,21 +1,21 @@
 import loginReducer, {
     logIn,
     logOut,
-    addUser, pickAvatar,
+    pickAvatar,
 } from './../store/loginSlice';
 import { LoginStateType } from '../types/types';
 import homer from '../../../assets/img/homer.png';
 import bart from '../../../assets/img/bart.png';
-import {log} from "util";
 
 
 const initialState:LoginStateType = {
     users: [
-        { id:'12', name: 'Egor', password: '1111', avatar:homer}
+        { id:12, name: 'Egor', password: '1111', avatar:null}
     ],
-    current: { id:'132', name: 'Kate', password: '1111', avatar:homer},
+    current: { id:132, name: 'Kate', password: '1111', avatar:null},
     status:'idle',
     error:null,
+    avatars:null,
 }
 
 describe('login reducer cases',()=> {
@@ -46,20 +46,20 @@ describe('login reducer cases',()=> {
         expect(result.current).toBeNull()
     })
 
-    it('goal: add new user and get user array length:2',()=> {
-
-        const action = {
-            type:addUser.type,
-            payload: {
-                name:'Joker',
-                password:'123',
-                avatar:homer,
-            }
-        }
-
-        const result = loginReducer(initialState,action)
-        expect(result.users).toHaveLength(2)
-    })
+    // it('goal: add new user and get user array length:2',()=> {
+    //
+    //     const action = {
+    //         type:addUser.type,
+    //         payload: {
+    //             name:'Joker',
+    //             password:'123',
+    //             avatar:homer,
+    //         }
+    //     }
+    //
+    //     const result = loginReducer(initialState,action)
+    //     expect(result.users).toHaveLength(2)
+    // })
 
     it('goal: change avatar to bart',()=> {
 

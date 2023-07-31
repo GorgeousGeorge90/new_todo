@@ -1,20 +1,28 @@
 
 export type TodoItemType = {
-    id: string,
+    id: number,
     name: string,
     title: string,
     text: string,
     complete: boolean,
-    date: string,
-    avatar:string,
+    avatar?: null | string,
 }
 
-export type TaskType = Omit<TodoItemType, 'date' | 'id' >
-export type NewTodoType = Omit<TodoItemType, 'date'| 'id' | 'avatar' | 'complete'>
+export type TodosProps = {
+    todos:TodoItemType[],
+    title:string,
+    avatar:string | null,
+}
 
+export type TaskType = Omit<TodoItemType, 'id' >
+export type NewTodoType = Omit<TodoItemType, 'id' | 'avatar' | 'complete'>
+export type NewTodoProps = Pick<TodoItemType, 'name' | 'title' | 'text'>
+export type CompleteProps = Pick<TodoItemType, 'id' | 'complete'>
+export type UpdateProps = Pick<TodoItemType, 'id' | 'text'>
 export type updateTodoPayload = Pick<TodoItemType, 'id'| 'text'>
-
 export type TodosType = {
     todos:TodoItemType[],
-    status:string,
+    status: 'idle' | 'pending' | 'fulfilled' | 'rejected',
+    error:null | string,
 }
+
