@@ -1,14 +1,13 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AddUserFormType, ErrorType, LoginStateType, UserLoginType, UserType } from '../types/types';
-import loginApi from "../api/loginApi";
-import { avatars } from '../../../utils/avatars';
+import { LoginStateType, UserLoginType, UserType } from '../types/types';
+import loginApi from '../api/loginApi';
 import { RootState } from '../../../store/store';
 
 
 
 
 export const fetchUsersBase = createAsyncThunk<UserType[],undefined,{rejectValue:string}>(
-    'login/fetchUsersBase',
+    '@login/fetchUsersBase',
     async (_,{rejectWithValue}) => {
             const response = await loginApi.usersBase()
 

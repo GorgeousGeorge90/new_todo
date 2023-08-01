@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+## TodoMaker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+***
 
-## Available Scripts
+![pic](src/assets/img/background.png)
 
-In the project directory, you can run:
 
-### `npm start`
+***
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Description
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<i>Simple SPA about your daily routine:
+- includes two blocks:
+    * [LoginForm](#films);
+    * [Todos](#news);
+- __header__ for logout and opportunity to choose avatar;
+- __footer__ for contacts;
 
-### `npm test`
+***
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+#### `LoginForm`
+<i>Starter default is LoginForm includes two forms:_
+ * form with login and password to enter;
+ * form to add new user;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+powered by __Supabase API__.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you have account, you can enter or you also have an opportunity to 
+create new account!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+***
 
-### `npm run eject`
+#### `Todos`
+The main content of SPA with standard options:
+ * add new todo;
+ * complete todo;
+ * update todo;
+ * delete todo;
+powered by __Supabase API__!</i>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+***
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* [x] HTML;
+* [x] TypeScript;
+* [x] CSS/SCSS;
+* [x] Tailwind CSS;
+* [x] React JS;
+* [x] Redux Toolkit;
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+***
 
-## Learn More
+### Contacts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+For feedback:`Gambit47@yandex.ru`<br>
+Deployed:`kino-monstr-1za9vg0b8-gorgeousgeorge90.vercel.app`

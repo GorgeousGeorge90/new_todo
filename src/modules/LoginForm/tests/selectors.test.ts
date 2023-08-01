@@ -4,14 +4,13 @@ import {
     getCurrent,
 } from '../selectors/selectors';
 import { RootState } from '../../../store/store';
-import homer from '../../../assets/img/homer.png';
 
 
 const login:LoginStateType = {
     users: [
-        { id:12, name: 'Egor', password: '1111', avatar:homer}
+        { id:12, name: 'Egor', password: '1111', avatar:null}
     ],
-    current: { id:12, name: 'Egor', password: '1111', avatar:homer},
+    current: { id:12, name: 'Egor', password: '1111', avatar:null},
     status:'idle',
     error: null,
     avatars: null,
@@ -29,7 +28,6 @@ describe('login selectors',()=> {
 
         const result = getCurrent({login} as RootState)
         if (result) {
-            // eslint-disable-next-line jest/no-conditional-expect
             expect(result.name).toBe('Egor')
         }
     })

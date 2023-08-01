@@ -15,7 +15,7 @@ const InputStyle = {
     color:'white',
 }
 
-const TodoItem = ({id,name,title,text,complete,avatar}:TodoItemType) => {
+const TodoItem = ({id,title,text,complete,avatar}:TodoItemType) => {
     const dispatch = useAppDispatch()
     const [editMode,setEditMode] = useState(false)
     const [new_text, setNewText] = useState(text)

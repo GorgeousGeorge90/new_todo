@@ -1,5 +1,14 @@
-import {createAsyncThunk, createSlice, current, PayloadAction} from '@reduxjs/toolkit';
-import {TodoItemType, TodosType, updateTodoPayload, CompleteProps, NewTodoProps, UpdateProps} from '../types/types';
+import {
+    createAsyncThunk,
+    createSlice,
+    PayloadAction
+} from '@reduxjs/toolkit';
+import {
+    TodoItemType,
+    TodosType,
+    CompleteProps,
+    NewTodoProps
+} from '../types/types';
 import todosApi from '../api/todosApi';
 import { RootState } from '../../../store/store';
 

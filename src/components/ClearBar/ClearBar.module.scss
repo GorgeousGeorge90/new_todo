@@ -1,0 +1,9 @@
+
+
+.clear_bar_list {
+  @apply flex  gap-5 justify-center text-sm cursor-pointer font-bold text-violet-400;
+
+  li {
+    @apply hover:text-violet-600 hover:scale-105 transition-all;
+  }
+}
