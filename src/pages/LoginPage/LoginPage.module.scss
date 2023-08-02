@@ -1,9 +1,11 @@
 
 
 .login_page_container {
-  @apply flex flex-col items-center py-[100px] gap-3 relative;
+  @apply flex flex-col items-center gap-3 relative;
+  padding-top: 100px;
 
   .login_page_error {
-    @apply bg-red-600 p-2 rounded-md text-sm text-neutral-100 animate-show_it absolute top-[50px];
+    @apply bg-red-600 p-2 rounded-md text-sm text-neutral-100 animate-show_it absolute;
+    top: 50px;
   }
 }
