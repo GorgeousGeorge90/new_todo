@@ -3,6 +3,7 @@ import { createSelector } from '@reduxjs/toolkit';
 import { getCurrent } from '../../LoginForm/selectors/selectors';
 
 export const getTodos = (state:RootState) => state.todos.todos
+export const getStatus = (state:RootState) => state.todos.status
 export const getCurrentTodos = createSelector(
     [getTodos,getCurrent],
     (todos,current) => {

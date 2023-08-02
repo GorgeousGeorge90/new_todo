@@ -1,15 +1,24 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import {FormPropsType, MainFormType} from '../../types/types';
+import { FormPropsType, MainFormType } from '../../types/types';
 import styles from './MainForm.module.scss';
 import React from 'react';
-import { useAppDispatch } from "../../../../store/hooks";
-import { logIn } from "../../store/loginSlice";
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import { logIn } from '../../store/loginSlice';
+import { getStatus } from '../../selectors/selectors';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { mainSchema } from '../../../../utils/validation';
 
 
 
 const MainForm = ({onClick}:FormPropsType) => {
     const dispatch = useAppDispatch()
-    const { register, reset, formState:{errors}, handleSubmit } = useForm<MainFormType>()
+    const status = useAppSelector(getStatus)
+    const { register, reset, formState:{errors}, handleSubmit } = useForm<MainFormType>({
+        resolver: yupResolver(mainSchema),
+    })
+
+    console.log(errors)
+
     const onSubmit:SubmitHandler<MainFormType> = data => {
         dispatch(logIn(data))
         reset()

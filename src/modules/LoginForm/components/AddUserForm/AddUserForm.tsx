@@ -1,50 +1,49 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { AddUserFormType, FormPropsType } from '../../types/types';
 import styles from './AddUserForm.module.scss';
-import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
 import { addNewUser } from '../../store/loginSlice';
-import { useNavigate } from 'react-router-dom';
-import { getError}  from "../../selectors/selectors";
-import {toast} from "react-toastify";
-
+import { getUsers } from '../../selectors/selectors';
+import React, { useEffect, useState } from 'react';
 
 
 const AddUserForm = ({onClick}:FormPropsType) => {
     const dispatch = useAppDispatch()
-    const error = useAppSelector(getError)
-    const navigate = useNavigate()
+    const users = useAppSelector(getUsers)
+    const [length,_] = useState(users.length)
     const { register, reset, formState:{errors}, handleSubmit } = useForm<AddUserFormType>()
+
+    useEffect(()=> {
+        if ( length !== users.length ) {
+            onClick()
+        }
+    },[users])
 
     const onSubmit:SubmitHandler<AddUserFormType> = data => {
         dispatch(addNewUser(data))
-
-        if (error) {
-            toast(error)
-        } else {
-            alert('Success!')
-            onClick()
-        }
+        reset()
     }
+
     const backMove = (event:React.SyntheticEvent) => {
         event.preventDefault()
+        reset()
         onClick()
     }
 
     return (<form className={styles.add_form_content}
                   onSubmit={handleSubmit(onSubmit)}>
-        <input className={styles.add_form_input}
+            <input className={styles.add_form_input}
                type='text'
                placeholder={'new name'}
-               {...register('new_name', {required:true})}
-        />
-        <input className={styles.add_form_input}
+               {...register('new_name', { required:true, minLength:3 })}
+            />
+            <input className={styles.add_form_input}
                type='text'
                placeholder={'new password'}
-               {...register('new_password', {required:true})}/>
-        <button onClick={backMove}
+               {...register('new_password', { required:true ,minLength:3 })}/>
+            <button onClick={backMove}
                 className={styles.add_form_back}>back</button>
-        <button className={styles.add_form_registration}>registration</button>
+            <button className={styles.add_form_registration}>registration</button>
     </form>)
 }
 

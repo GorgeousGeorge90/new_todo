@@ -8,8 +8,8 @@ module.exports = {
       },
       keyframes: {
         show_it: {
-          '0%': {transform: 'translateX(800px)'},
-          '100%': {transform: 'translateX(0)'}
+          '0%': {transform: 'translateY(-800px)'},
+          '100%': {transform: 'translateY(0)'}
         },
 
         open: {
@@ -19,7 +19,7 @@ module.exports = {
       },
       animation: {
         'show_it': 'show_it 0.5s ease-in',
-        'open': 'open 2s ease-in',
+        'open': 'open 0.5s ease-in',
       },
     },
   },

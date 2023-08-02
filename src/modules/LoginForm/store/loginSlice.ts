@@ -6,6 +6,7 @@ import { RootState } from '../../../store/store';
 
 
 
+
 export const fetchUsersBase = createAsyncThunk<UserType[],undefined,{rejectValue:string}>(
     '@login/fetchUsersBase',
     async (_,{rejectWithValue}) => {
@@ -19,30 +20,29 @@ export const fetchUsersBase = createAsyncThunk<UserType[],undefined,{rejectValue
     })
 
 export const addNewUser = createAsyncThunk<
-    string,
+    void,
     {
         new_name:string,
         new_password:string,
     },
     {
         state:RootState,
-        rejectValue:string,
     }
     >(
     '@login/addNewUser',
-    async(payload,{getState,rejectWithValue,dispatch})=> {
+    async(payload,{getState,dispatch})=> {
         const {new_name, new_password} = payload
         const person = getState().login.users.filter(user => user.name === new_name)
 
         if (person.length === 0) {
             const response = await loginApi.addNewUser(new_name, new_password)
 
-            if(response) {
+            if (response) {
                 dispatch(addUser(response))
             }
+        } else {
+            dispatch(setError('This name is already taken!'))
         }
-
-        return rejectWithValue('This name is already taken!')
     }
 )
 
@@ -97,16 +97,29 @@ const loginSlice = createSlice({
             if (currentUser) {
                 if (currentUser.password === password) {
                     state.current = currentUser
+                } else {
+                    state.error = 'Incorrect password!'
                 }
+            } else {
+                state.error = 'No such user exists!'
             }
         },
 
         logOut:(state) => {
+            state.error = null
             state.current = null
         },
 
         addUser:(state,action:PayloadAction<UserType[]>) => {
             state.users.push(action.payload[0])
+        },
+
+        clearError:(state)=> {
+            state.error = null
+        },
+
+        setError:(state,action:PayloadAction<string>)=> {
+            state.error = action.payload
         },
 
         pickAvatar:(state,action:PayloadAction<{id:number,avatar:string}>)=> {
@@ -141,21 +154,6 @@ const loginSlice = createSlice({
                 state.status = 'rejected'
             })
 
-            .addCase(addNewUser.pending, (state,action)=> {
-                state.status = 'pending'
-            })
-
-            .addCase(addNewUser.rejected, (state,{payload}) => {
-                if (payload) {
-                    state.error = payload
-                }
-                state.status = 'rejected'
-            })
-
-            .addCase(addNewUser.fulfilled, (state,action)=> {
-                state.status = 'fulfilled'
-                state.error = null
-            })
     })
 })
 
@@ -163,7 +161,9 @@ export default loginSlice.reducer
 export const {
     logIn,
     logOut,
+    clearError,
     pickAvatar,
     getAvatars,
     addUser,
+    setError,
 } = loginSlice.actions

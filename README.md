@@ -26,8 +26,12 @@
 
 powered by __Supabase API__.
 
-If you have account, you can enter or you also have an opportunity to 
-create new account!
+If you have account, you can fill name and password inputs and sign in!
+
+If you don't have account:
+
+* enter the unique name min 3 letters;
+* enter password min 3 letters;
 
 ***
 
