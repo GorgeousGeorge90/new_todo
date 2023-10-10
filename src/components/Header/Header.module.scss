@@ -4,17 +4,21 @@
   @apply flex items-center h-[110px] bg-violet-800 text-neutral-300 sticky top-0;
 
   .header_content {
-    @apply flex items-center gap-3 m-10 flex-grow;
+    @apply flex items-center gap-1 sm:gap-3 m-10 flex-grow;
 
     .header_logo {
-
+      @apply hidden xs:block;
     }
 
     .header_info {
-      @apply flex-grow text-neutral-300 text-sm first-letter:uppercase px-5;
+      @apply flex-grow text-neutral-300 first-letter:uppercase px-5;
 
       .header_title {
-        @apply font-bold text-2xl text-neutral-100;
+        @apply font-bold text-xl sm:text-2xl text-neutral-100;
+      }
+
+      .header_title + p {
+        @apply text-xs sm:text-sm;
       }
     }
 
@@ -25,13 +29,25 @@
         @apply grid grid-rows-2 grid-cols-2 items-center justify-center text-sm gap-2;
 
         .header_login_btn {
-          @apply bg-violet-600 rounded-md p-1 hover:bg-violet-500 col-span-2;
+          @apply bg-violet-600 rounded-md p-1 col-span-2 sm:scale-100 scale-75;
+
+          &:hover {
+            @apply bg-violet-500;
+          }
         }
 
         .header_login_ava {
-          @apply h-10 cursor-pointer;
+          @apply  h-8 xs:h-10 cursor-pointer;
+        }
+
+        .header_login_ava + p {
+          @apply text-xs xs:text-sm;
         }
       }
+    }
+
+    p[aria-description='offline'] {
+      @apply text-xs xs:text-sm;
     }
   }
 }

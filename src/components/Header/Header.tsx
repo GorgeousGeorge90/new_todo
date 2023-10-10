@@ -17,6 +17,14 @@ const Header = () => {
         dispatch(logOut())
     }
 
+    const avaClick = () => {
+        if ( window.innerWidth < 670 ) {
+            console.log('not working on with resolution!')
+        } else {
+            setEdit(prevState => !prevState)
+        }
+    }
+
     return (<div className={styles.header_container}>
         <header className={styles.header_content}>
             <section className={styles.header_logo}>
@@ -33,22 +41,17 @@ const Header = () => {
                         <AvatarItem edit={edit}
                                     setEdit={setEdit}
                         />
-                        {
-                            current.avatar ? <img className={styles.header_login_ava}
-                                                  src={current.avatar}
+                        <img className={styles.header_login_ava}
+                                                  src={ current.avatar ? current.avatar:user }
                                                   alt='pic'
-                                                  onClick={()=>setEdit(prevState => !prevState)}
-                                             />:
-                                             <img className={styles.header_login_ava}
-                                                  src={user}
-                                                  alt='pic'
-                                                  onClick={()=>setEdit(prevState => !prevState)}
-                                             />
-                        }
+                                                  onClick={avaClick}
+                        />
                         <p>{current.name}</p>
                         <button className={styles.header_login_btn}
+                                type={'button'}
+                                aria-label={'exit'}
                                 onClick={onClick}>sign out</button>
-                    </div>: <p>not authorised</p>
+                    </div>: <p aria-description={'offline'}>not authorised</p>
                 }
             </section>
         </header>

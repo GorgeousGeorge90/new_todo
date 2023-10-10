@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector} from '../../../../store/hooks';
 import {getAllAvatars, getCurrent} from '../../../../modules/LoginForm/selectors/selectors';
-import { useState } from 'react';
 import {changeAvatar} from "../../../../modules/LoginForm/store/loginSlice";
 import styles from './AvatarItem.module.scss';
 
@@ -14,16 +13,6 @@ const AvatarItem = ({edit,setEdit}:AvatarProps) => {
     const current = useAppSelector(getCurrent)
     const dispatch = useAppDispatch()
 
-    // const handleClick = (avatar:string) => {
-    //     if (current) {
-    //         const payload = {
-    //             id:current.id,
-    //             avatar,
-    //         }
-    //         dispatch(changeAvatar(payload))
-    //         setEdit(false)
-    //     }
-    // }
 
     return (<div className={styles.avatar_item_container}>
         {

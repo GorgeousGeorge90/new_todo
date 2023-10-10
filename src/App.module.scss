@@ -1,7 +1,7 @@
 
 
 .app {
-  @apply w-[1100px] mx-auto font-sans-serif;
+  @apply w-screen mx-auto font-sans-serif;
 
   .app_container {
     @apply flex flex-col h-screen;

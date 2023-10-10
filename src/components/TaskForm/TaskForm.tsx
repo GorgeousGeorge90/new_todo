@@ -10,7 +10,10 @@ import {addNewTodo} from "../../modules/Todos/store/todosSlice";
 const TaskForm = () => {
     const dispatch = useAppDispatch()
     const current = useAppSelector(getCurrent)
-    const { register, reset, handleSubmit, formState:{errors}} = useForm<TaskType>()
+    const { register, reset, handleSubmit, formState:{
+        errors,
+        isSubmitting,
+    }} = useForm<TaskType>()
     const onSubmit:SubmitHandler<NewTodoType> = data => {
         if (current) {
             const payload: NewTodoProps = {
@@ -28,14 +31,20 @@ const TaskForm = () => {
         <input className={styles.task_form_input}
                type='text'
                placeholder={'enter title'}
-               {...register('title',{required: true})}
+               aria-required={true}
+               {...register('title',{ required: true })}
             />
         <input className={styles.task_form_input}
                type='text'
                placeholder={'enter task'}
-               {...register('text',{required: true})}
+               aria-required={true}
+               {...register('text',{ required: true })}
         />
-        <button className={styles.task_form_btn}>
+        <button className={styles.task_form_btn}
+                type={'submit'}
+                aria-label={'добавить задачу'}
+                disabled={isSubmitting}
+        >
             +
         </button>
     </form>)

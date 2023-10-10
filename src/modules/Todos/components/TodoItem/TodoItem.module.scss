@@ -1,7 +1,8 @@
 
 
 .todo_item_container {
-  @apply flex w-fit max-w-[500px] rounded-md p-3 gap-2 items-center;
+  @apply flex w-fit rounded-md p-3 gap-2 items-center;
+  max-width: 500px;
 
   .todo_item_checkbox {
     @apply appearance-none bg-neutral-50 h-[15px] w-[15px] flex items-center justify-center border-[1px] rounded-full

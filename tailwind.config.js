@@ -3,6 +3,9 @@ module.exports = {
   content: [],
   theme: {
     extend: {
+      screens: {
+        'xs':'400px',
+      },
       fontFamily: {
         'sans-serif': ['Alegreya Sans SC', 'sans-serif'],
       },

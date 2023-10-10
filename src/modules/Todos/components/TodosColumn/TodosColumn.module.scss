@@ -5,7 +5,8 @@
   @apply flex flex-col items-center gap-2;
 
   .todos_column_title {
-    @apply first-letter:uppercase font-bold text-lg text-violet-500;
+    @apply first-letter:uppercase font-bold text-base
+    md:text-lg text-violet-500;
   }
 
   .todos_column_list {

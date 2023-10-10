@@ -2,15 +2,29 @@
 
 
 .task_form {
-  @apply grid grid-cols-[200px_1fr_20px] gap-2 p-2
-  bg-violet-500 text-neutral-100 w-[600px] self-center mt-5 rounded-md m-0;
+  @apply grid grid-cols-[50px_200px_20px] w-[300px]
+  xs:grid-cols-[100px_1fr_20px] xs:w-[350px]
+  sm:grid-cols-[200px_1fr_20px] sm:w-[600px]
+  gap-2 p-2 bg-violet-500 text-neutral-100 self-center mt-5 rounded-md m-0;
 
   .task_form_input {
-    @apply p-1 text-sm rounded-md cursor-pointer bg-violet-200 hover:bg-violet-400 hover:text-white;
+    @apply p-1 text-sm rounded-md cursor-pointer bg-violet-200;
+
+    &::placeholder {
+      @apply opacity-0 xs:opacity-100;
+    }
+
+    &:hover {
+      @apply text-white bg-violet-400;
+    }
   }
 
   .task_form_btn {
     @apply flex justify-center items-center rounded-full
-    bg-violet-600 h-[20px] self-center font-bold hover:bg-violet-400;
+    bg-violet-600 h-[20px] self-center font-bold;
+
+    &:hover {
+      @apply bg-violet-400;
+    }
   }
 }

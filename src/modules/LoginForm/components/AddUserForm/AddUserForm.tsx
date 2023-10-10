@@ -11,7 +11,10 @@ const AddUserForm = ({onClick}:FormPropsType) => {
     const dispatch = useAppDispatch()
     const users = useAppSelector(getUsers)
     const [length,_] = useState(users.length)
-    const { register, reset, formState:{errors}, handleSubmit } = useForm<AddUserFormType>()
+    const { register, reset, formState:{
+        errors,
+        isSubmitting,
+    }, handleSubmit } = useForm<AddUserFormType>()
 
     useEffect(()=> {
         if ( length !== users.length ) {
@@ -38,12 +41,17 @@ const AddUserForm = ({onClick}:FormPropsType) => {
                {...register('new_name', { required:true, minLength:3 })}
             />
             <input className={styles.add_form_input}
-               type='text'
+               type='password'
                placeholder={'new password'}
                {...register('new_password', { required:true ,minLength:3 })}/>
-            <button onClick={backMove}
-                className={styles.add_form_back}>back</button>
-            <button className={styles.add_form_registration}>registration</button>
+            <button className={styles.add_form_back}
+                    type={'button'}
+                    aria-label={'to previous login'}
+                    onClick={backMove}>back</button>
+            <button className={styles.add_form_registration}
+                    type={'submit'}
+                    disabled={isSubmitting}
+                    aria-label={'registration'}>registration</button>
     </form>)
 }
 

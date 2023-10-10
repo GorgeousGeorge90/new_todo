@@ -2,7 +2,7 @@
 
 
 .avatar_item_container {
-  @apply flex items-center justify-center h-20 w-48 absolute right-40;
+  @apply hidden sm:flex items-center justify-center h-20 w-48 absolute right-28;
 
   .avatar_item_list {
     @apply flex gap-2;
