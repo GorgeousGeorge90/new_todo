@@ -33,6 +33,10 @@ If you don't have account:
 * enter the unique name min 3 letters;
 * enter password min 3 letters;
 
+Test account:
+* name: __Egor__;
+* password: __1111__;
+
 ***
 
 #### `Todos`
@@ -53,10 +57,11 @@ powered by __Supabase API__!</i>
 * [x] Tailwind CSS;
 * [x] React JS;
 * [x] Redux Toolkit;
+* [x] React Hook Form
 
 ***
 
 ### Contacts
 
 For feedback:`Gambit47@yandex.ru`<br>
-Deployed:`kino-monstr-1za9vg0b8-gorgeousgeorge90.vercel.app`
+Deployed:`https://new-todo-ten.vercel.app/`
