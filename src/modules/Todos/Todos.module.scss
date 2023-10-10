@@ -1,3 +1,4 @@
 .todos_list {
-  @apply grid sm:grid-cols-2 justify-center gap-10 px-[100px] md:px-[200px];
+  @apply grid sm:grid-cols-2 justify-center gap-10;
+  padding: 0 100px;
 }
